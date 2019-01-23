@@ -7,6 +7,7 @@ APP DESCRIPTION HERE
 - [Rishi Wadhwa](http://link-to-website-here/)
 - [Lucas Zheng](http://link-to-website-here/)
 - [Bharath Malipeddi](http://link-to-website-here/)
+- Thanks to [htdebeer](https://github.com/htdebeer/SVG-cards) for the card pngs!
 
 ## Features
 
