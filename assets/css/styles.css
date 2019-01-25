@@ -4,16 +4,17 @@ header {
 
 #hit{
 
-  height: 70px;
-  width: 196px;
+  height: 100px;
+  width: 200px;
 }
 #hold {
 
-  height: 70px;
-  width: 196px;
+  height: 100px;
+  width: 200px;
 }
 #home {
-  
-  height: 70px;
-  width: 196px;
+
+  height: 100px;
+  width: 200px;
+  align-items: right;
 }
