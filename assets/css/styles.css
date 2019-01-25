@@ -1,3 +1,19 @@
 header {
   text-align: center;
 }
+
+#hit{
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+#hold {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+#home {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
