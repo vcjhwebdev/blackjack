@@ -1,15 +1,16 @@
 var deckOfCards = [];
-var deck = document.querySelector('.deck');
-var cardInPlay = document.querySelector('.play');
+
+var hit = document.querySelector('.hit');
+var playerCard = document.querySelector('.player')
 
 
-deck.addEventListener('click', function(e) {
-  // e.target <-- thing you clicked on
-  // e.target.className <-- class of the thing
-  // e.target.style.display = "none" <-- hides the thing
+
+hit.addEventListener('click', function(e) {
+
   var nextCard = deckOfCards.pop();
   if(nextCard !== undefined) {
-    cardInPlay.src = "img/cards/1x/" + nextCard + ".png";
+     playerCard.src = "img/cards/1x/" + nextCard + ".png";
+
   }
 });
 
