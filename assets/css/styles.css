@@ -1,5 +1,6 @@
 header {
   text-align: center;
+
 }
 
 #hit{
@@ -17,4 +18,8 @@ header {
   height: 100px;
   width: 200px;
   align-items: right;
+}
+#play  {
+  align-items: center;
+
 }
