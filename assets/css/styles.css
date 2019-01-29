@@ -9,33 +9,21 @@ header {
 
 .buttons {
   width: 50%;
-  border: 1px solid black;
+
+}
+.left{
+  float: left;
 }
 
 .buttons button {
-  font-size: 60px;
+  font-size: 50px;
   display: block;
+
+}
+.right {
+  float: right;
 }
 
 .bet:before {
-  content: "$";
+  content: "Bet $";
 }
-/*
-#hit{
-
-  height: 100px;
-  width: 200px;
-}
-#hold {
-
-  height: 100px;
-  width: 200px;
-}
-#home {
-
-  height: 100px;
-  width: 200px;
-  align-items: right;
-}
-*/
-/* Cards are in the center */
