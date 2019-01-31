@@ -14,7 +14,7 @@ hit.addEventListener('click', function(e) {
   }
 });
 
-cardInPlay.addEventListener('click', function(e) {
+nextCard.addEventListener('click', function(e) {
   var src = e.target.src;
   alert('You clicked on a card in play. It\'s file is ' + src);
 });
