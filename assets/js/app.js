@@ -14,7 +14,7 @@ hit.addEventListener('click', function(e) {
   }
 });
 
-nextCard.addEventListener('click', function(e) {
+hit.addEventListener('click', function(e) {
   var src = e.target.src;
   alert('You clicked on a card in play. It\'s file is ' + src);
 });
@@ -45,3 +45,4 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 deckOfCards = shuffle(cardsArr);
+print(deckOfCards)
