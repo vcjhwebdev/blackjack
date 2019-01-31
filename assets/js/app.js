@@ -1,7 +1,7 @@
 var deckOfCards = [];
 
 var hit = document.querySelector('.hit');
-var playerCard = document.querySelector('.player')
+
 
 
 
@@ -9,14 +9,19 @@ hit.addEventListener('click', function(e) {
 
   var nextCard = deckOfCards.pop();
   if(nextCard !== undefined) {
-     playerCard.src = "img/cards/1x/" + nextCard + ".png";
+    // var img = new Image("<img src="img.src"/>");
+        // img.src = "img/cards/1x/" + nextCard + ".png";
+        var img = document.createElement("img");
 
+        img.src = "img/cards/1x/" + nextCard + ".png";
+        var src = document.getElementById("nextPlayCard");
+
+src.appendChild(img);
   }
 });
 
 hit.addEventListener('click', function(e) {
   var src = e.target.src;
-  alert('You clicked on a card in play. It\'s file is ' + src);
 });
 
 
@@ -45,4 +50,4 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 deckOfCards = shuffle(cardsArr);
-print(deckOfCards)
+console.log(deckOfCards)
