@@ -1,9 +1,6 @@
 var deckOfCards = [];
-
+var cardValSum = 0
 var hit = document.querySelector('.hit');
-
-
-
 
 hit.addEventListener('click', function(e) {
 
@@ -11,18 +8,38 @@ hit.addEventListener('click', function(e) {
   if(nextCard !== undefined) {
     // var img = new Image("<img src="img.src"/>");
         // img.src = "img/cards/1x/" + nextCard + ".png";
+        var cardSplit = nextCard.split("_");
+        var cardVal = cardSplit[1];
+        if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
+          cardVal = 10
+        }
+        else {
+          cardVal = parseInt(cardVal)
+        }
+
+        cardValSum += cardVal
+
+
         var img = document.createElement("img");
 
         img.src = "img/cards/1x/" + nextCard + ".png";
         var src = document.getElementById("nextPlayCard");
-
-src.appendChild(img);
+        console.log(cardVal)
+        if (cardValSum > 21){
+          console.log("BUST")
+          //cardValSum = 0
+        }
+        else {
+          src.appendChild(img);
+        }
   }
 });
+
 
 hit.addEventListener('click', function(e) {
   var src = e.target.src;
 });
+
 
 
 function shuffle(array) {
@@ -49,5 +66,11 @@ for (i=1; i<=10; i++) {
   cardsArr.push("heart_" + i);
   cardsArr.push("spade_" + i);
 }
+function Dealer(){
+  console.log("Dealers Turn");
+}
+function Player(){
+  console.log("Players Turn");
+}
 deckOfCards = shuffle(cardsArr);
-console.log(deckOfCards)
+//console.log(deckOfCards);
