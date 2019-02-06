@@ -7,7 +7,7 @@ var dealerTurn = false
 hit.addEventListener('click', function(e) {
 
   var nextCard = deckOfCards.pop();
-  if (cardValSum < 21){
+  if (cardValSum <= 21){
 
   if(nextCard !== undefined) {
 
@@ -38,7 +38,16 @@ hit.addEventListener('click', function(e) {
     }
 
     else {
+      if (cardValSum == 21) {
+
+        console.log("YOU WIN")
+        dealerTurn = true;
+      }
+      else {
         console.log("BUST")
+        dealerTurn = true;
+      }
+
     }
 });
 
@@ -74,15 +83,18 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 function Dealer(){
-  console.log("Dealers Turn");
 
-while (cardValSum < 18) {
-   nextCard = deckOfCards.pop();
+  //if (dealerTurn == true) {
+    console.log("Dealers Turn");
 
-  if(nextCard !== undefined) {
+    while (cardValSum < 18) {
+      nextCard = deckOfCards.pop();
+
+      if(nextCard !== undefined) {
 
         cardSplit = nextCard.split("_");
         cardVal = cardSplit[1];
+
         if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
           cardVal = 10
         }
@@ -92,23 +104,20 @@ while (cardValSum < 18) {
 
         cardValSum += cardVal
 
-
         var img = document.createElement("img");
 
         img.src = "img/cards/1x/" + nextCard + ".png";
         var src = document.getElementById("dealerPlayCard");
         console.log(cardVal)
 
-
-
-
           src.appendChild(img);
 
 
-        }
+      }
     }
-  cardValSum = 0
-
+    cardValSum = 0
+    dealerTurn = false
+  //}
 }
 function Player(){
   console.log("Players Turn");
