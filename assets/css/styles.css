@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Rock+Salt');
 
 * {
   box-sizing: border-box;
@@ -17,11 +18,12 @@ body {
   -webkit-animation-duration: 20s;
   /* background-color: green; */
   background-image: url(../../img/background.jpg);
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Rock Salt', cursive;
 }
 
 button {
   font-family: 'Architects Daughter', cursive;
+
 }
 
 .buttons {
