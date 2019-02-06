@@ -1,5 +1,5 @@
 var deckOfCards = [];
-var cardValSum = 0
+var playerCardValSum = 0
 var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold')
 var dealerTurn = false
@@ -7,7 +7,7 @@ var dealerTurn = false
 hit.addEventListener('click', function(e) {
 
   var nextCard = deckOfCards.pop();
-  if (cardValSum <= 21){
+  if (playerCardValSum <= 21){
 
   if(nextCard !== undefined) {
 
@@ -20,7 +20,7 @@ hit.addEventListener('click', function(e) {
           cardVal = parseInt(cardVal)
         }
 
-        cardValSum += cardVal
+        playerCardValSum += cardVal
 
 
         var img = document.createElement("img");
@@ -38,7 +38,7 @@ hit.addEventListener('click', function(e) {
     }
 
     else {
-      if (cardValSum == 21) {
+      if (playerCardValSum == 21) {
 
         console.log("YOU WIN")
         dealerTurn = true;
@@ -83,11 +83,11 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 function Dealer(){
-
-  //if (dealerTurn == true) {
+  var dealerCardValSum = 0
+  if (dealerTurn === true) {
     console.log("Dealers Turn");
 
-    while (cardValSum < 18) {
+    while (dealerCardValSum < 18) {
       nextCard = deckOfCards.pop();
 
       if(nextCard !== undefined) {
@@ -102,7 +102,7 @@ function Dealer(){
           cardVal = parseInt(cardVal)
         }
 
-        cardValSum += cardVal
+        dealerCardValSum += cardVal
 
         var img = document.createElement("img");
 
@@ -115,9 +115,9 @@ function Dealer(){
 
       }
     }
-    cardValSum = 0
+    playerCardValSum = 0
     dealerTurn = false
-  //}
+  }
 }
 function Player(){
   console.log("Players Turn");
