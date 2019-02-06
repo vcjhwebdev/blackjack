@@ -1,13 +1,16 @@
 var deckOfCards = [];
 var cardValSum = 0
 var hit = document.querySelector('.hit');
+var hold = document.querySelector('.hold')
+var dealerTurn = false
 
 hit.addEventListener('click', function(e) {
 
   var nextCard = deckOfCards.pop();
+  if (cardValSum < 21){
+
   if(nextCard !== undefined) {
-    // var img = new Image("<img src="img.src"/>");
-        // img.src = "img/cards/1x/" + nextCard + ".png";
+
         var cardSplit = nextCard.split("_");
         var cardVal = cardSplit[1];
         if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
@@ -25,14 +28,18 @@ hit.addEventListener('click', function(e) {
         img.src = "img/cards/1x/" + nextCard + ".png";
         var src = document.getElementById("nextPlayCard");
         console.log(cardVal)
-        if (cardValSum > 21){
-          console.log("BUST")
-          //cardValSum = 0
-        }
-        else {
+
+
+
+
           src.appendChild(img);
+
         }
-  }
+    }
+
+    else {
+        console.log("BUST")
+    }
 });
 
 
@@ -68,6 +75,40 @@ for (i=1; i<=10; i++) {
 }
 function Dealer(){
   console.log("Dealers Turn");
+
+while (cardValSum < 18) {
+   nextCard = deckOfCards.pop();
+
+  if(nextCard !== undefined) {
+
+        cardSplit = nextCard.split("_");
+        cardVal = cardSplit[1];
+        if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
+          cardVal = 10
+        }
+        else {
+          cardVal = parseInt(cardVal)
+        }
+
+        cardValSum += cardVal
+
+
+        var img = document.createElement("img");
+
+        img.src = "img/cards/1x/" + nextCard + ".png";
+        var src = document.getElementById("dealerPlayCard");
+        console.log(cardVal)
+
+
+
+
+          src.appendChild(img);
+
+
+        }
+    }
+  cardValSum = 0
+
 }
 function Player(){
   console.log("Players Turn");
