@@ -26,6 +26,11 @@ button {
 
 }
 
+.border {
+  border-style: double;
+  
+}
+
 .buttons {
   width: 50%;
 }
