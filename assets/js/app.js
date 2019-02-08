@@ -1,5 +1,7 @@
 var deckOfCards = [];
 var playerCardValSum = 0;
+var dealerCardValSum = 0;
+
 var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
@@ -10,7 +12,7 @@ hit.addEventListener('click', function(e) {
   console.log("Players Turn");
 
   var nextCard = deckOfCards.pop();
-  if (playerCardValSum <= 21){
+  if (playerCardValSum < 21){
 
   if(nextCard !== undefined) {
 
@@ -36,22 +38,12 @@ hit.addEventListener('click', function(e) {
 
 
           src.appendChild(img);
+          dealerTurn = true;
 
         }
     }
 
-    else {
-      if (playerCardValSum == 21) {
 
-        console.log("YOU WIN")
-        dealerTurn = true;
-      }
-      else {
-        console.log("BUST")
-        dealerTurn = true;
-      }
-
-    }
 });
 
 hold.addEventListener('click', function(e) {
@@ -78,7 +70,6 @@ hold.addEventListener('click', function(e) {
       }
     }
 
-    var dealerCardValSum = 0;
     if (dealerTurn === true) {
       console.log("Dealers Turn");
 
@@ -117,7 +108,7 @@ hold.addEventListener('click', function(e) {
 });
 
 newGame.addEventListener('click', function(e) {
-    
+  location.reload();
 });
 
 function shuffle(array) {
