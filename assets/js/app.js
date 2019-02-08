@@ -48,27 +48,7 @@ hit.addEventListener('click', function(e) {
 
 hold.addEventListener('click', function(e) {
 
-    function checkWinner() {
-      if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
-        alert ('Push!');
-      }else if (playerCardValSum > 21 && dealerCardValSum > 21){
-        alert('Push!')
-      } else if (playerCardValSum > 21) {
-        alert('BUST! You lose!');
-      } else if(dealerCardValSum > 21) {
-        alert ('Dealer BUST! You win!');
-      } else if (playerCardValSum > dealerCardValSum) {
-        alert('You Win!');
-      } else if (dealerCardValSum > playerCardValSum){
-        alert('You Lose!');
-      } else if (dealerCardValSum == 21 && playerCardValSum == 21){
-        alert('Push! Tie!');
-      } else if (dealerCardValSum == 21 ) {
-        alert('BlackJack of Dealer! You Lose!');
-      } else if (playerCardValSum == 21) {
-        alert('BlackJack! You win!');
-      }
-    }
+
 
     if (dealerTurn === true) {
       console.log("Dealers Turn");
@@ -97,6 +77,7 @@ hold.addEventListener('click', function(e) {
           console.log(cardVal)
 
             src.appendChild(img);
+            function checkWinner() {
 
 
         }
@@ -105,6 +86,26 @@ hold.addEventListener('click', function(e) {
       dealerTurn = false;
       checkWinner();
     }
+    if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
+      alert ('Push!');
+    }else if (playerCardValSum > 21 && dealerCardValSum > 21){
+      alert('Push!')
+    } else if (playerCardValSum > 21) {
+      alert('BUST! You lose!');
+    } else if(dealerCardValSum > 21) {
+      alert ('Dealer BUST! You win!');
+    } else if (playerCardValSum > dealerCardValSum) {
+      alert('You Win!');
+    } else if (dealerCardValSum > playerCardValSum){
+      alert('You Lose!');
+    } else if (dealerCardValSum == 21 && playerCardValSum == 21){
+      alert('Push! Tie!');
+    } else if (dealerCardValSum == 21 ) {
+      alert('BlackJack of Dealer! You Lose!');
+    } else if (playerCardValSum == 21) {
+      alert('BlackJack! You win!');
+    }
+  }
 });
 
 newGame.addEventListener('click', function(e) {
