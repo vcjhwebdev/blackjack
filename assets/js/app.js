@@ -7,13 +7,13 @@ var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
 var bet = document.querySelector('.bet')
 
-var money = 0
+
 
 var dealerTurn = false;
 
 bet.addEventListener('click', function(e) {
-
-document.getElementById('money').innerHTML = 'Money: 10'
+var money = 500
+document.getElementById('money').innerHTML = 'Money: ' + money
 
 })
 
