@@ -110,6 +110,8 @@ hold.addEventListener('click', function(e) {
 
 newGame.addEventListener('click', function(e) {
   //location.reload();
+  document.getElementById('nextPlayCard').innerHTML = '';
+  document.getElementById('dealerPlayCard').innerHTML = "";
   // clear the <img> tags from dealer...
   deckOfCards = shuffle(cardsArr);
   // and player
