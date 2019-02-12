@@ -28,7 +28,7 @@ button {
 
 .border {
   border-style: double;
-  
+
 }
 
 .buttons {
@@ -39,7 +39,7 @@ button {
 }
 
 .buttons button {
-  font-size: 50px;
+  font-size: 60px;
   display: block;
 
 }
