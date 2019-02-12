@@ -5,10 +5,20 @@ var dealerCardValSum = 0;
 var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
+var bet = document.querySelector('.bet')
+
+var money = 0
+
 var dealerTurn = false;
 
-hit.addEventListener('click', function(e) {
+bet.addEventListener('click', function(e) {
 
+document.getElementById('money').innerHTML = 'Money: 10'
+
+})
+
+hit.addEventListener('click', function(e) {
+  var firstHit = true
   console.log("Players Turn");
 
   var nextCard = deckOfCards.pop();
@@ -34,10 +44,8 @@ hit.addEventListener('click', function(e) {
         var src = document.getElementById("nextPlayCard");
         console.log(cardVal)
 
-
-
-
           src.appendChild(img);
+
           dealerTurn = true;
 
         }
@@ -53,7 +61,7 @@ hold.addEventListener('click', function(e) {
     if (dealerTurn === true) {
       console.log("Dealers Turn");
 
-      while (dealerCardValSum < 18) {
+      while (dealerCardValSum < 16) {
         nextCard = deckOfCards.pop();
 
         if(nextCard !== undefined) {
@@ -70,21 +78,16 @@ hold.addEventListener('click', function(e) {
 
           dealerCardValSum += cardVal
 
-          var img = document.createElement("img");
 
-          img.src = "img/cards/1x/" + nextCard + ".png";
-          var src = document.getElementById("dealerPlayCard");
+          var img2 = document.createElement("img");
+
+          img2.src = "img/cards/1x/" + nextCard + ".png";
+          var src2 = document.getElementById("dealerPlayCard");
           console.log(cardVal)
 
-            src.appendChild(img);
-            function checkWinner() {
+            src2.appendChild(img2);
 
-
-        }
       }
-      playerCardValSum = 0;
-      dealerTurn = false;
-      checkWinner();
     }
     if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
       alert ('Push!');
@@ -105,13 +108,17 @@ hold.addEventListener('click', function(e) {
     } else if (playerCardValSum == 21 && dealerCardValSum < 21) {
       alert('BlackJack! You win!');
     }
+    playerCardValSum = 0;
+    dealerCardValSum = 0;
+    dealerTurn = false;
   }
 });
 
 newGame.addEventListener('click', function(e) {
   //location.reload();
-  document.getElementById('nextPlayCard').innerHTML = '';
-  document.getElementById('dealerPlayCard').innerHTML = "";
+  document.getElementById('dealerPlayCard').innerHTML = ''
+  document.getElementById('nextPlayCard').innerHTML = ''
+
   // clear the <img> tags from dealer...
   deckOfCards = shuffle(cardsArr);
   // and player
