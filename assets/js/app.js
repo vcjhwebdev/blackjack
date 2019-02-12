@@ -89,6 +89,9 @@ hold.addEventListener('click', function(e) {
 
       }
     }
+    setTimeout(function(){
+
+
     if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
       alert ('Push!');
     }else if (playerCardValSum > 21 && dealerCardValSum > 21){
@@ -111,6 +114,8 @@ hold.addEventListener('click', function(e) {
     playerCardValSum = 0;
     dealerCardValSum = 0;
     dealerTurn = false;
+  }, 1000);
+    
   }
 });
 
