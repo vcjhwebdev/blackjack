@@ -120,6 +120,10 @@ hold.addEventListener('click', function(e) {
       money += 2 * betAmount
     }
     document.getElementById('money').innerHTML = 'Money: ' + money
+    if (money <= 5) {
+      alert("Sorry you Lost all your money!")
+
+    }
     betAmount = 0
     playerCardValSum = 0;
     dealerCardValSum = 0;
