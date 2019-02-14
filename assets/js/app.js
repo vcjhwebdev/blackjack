@@ -8,15 +8,21 @@ var newGame = document.querySelector('.new-game');
 var bet = document.querySelector('.bet');
 var money = 500;
 var betAmount = 0;
-
-
 var dealerTurn = false;
 
+
+
 bet.addEventListener('click', function(e) {
+
   var button = e.target;
   var bet = parseInt(button.textContent);
-  money -= bet;
-  betAmount += bet;
+  if (bet > money) {
+  alert("Sorry, you don't have enough money to bet that much!")
+  }
+  else {
+    money -= bet;
+    betAmount += bet;
+  }
   document.getElementById('money').innerHTML = 'Money: ' + money;
   document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
 
@@ -95,38 +101,44 @@ hold.addEventListener('click', function(e) {
       }
     }
     setTimeout(function(){
-
-
-    if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
-      alert ('Push!');
-      money += betAmount;
-    }else if (playerCardValSum > 21 && dealerCardValSum > 21){
-      alert('Push!');
-      money += betAmount;
-    } else if (playerCardValSum > 21 && dealerCardValSum < 21) {
-      alert('BUST! You lose!');
-    } else if(dealerCardValSum > 21 && playerCardValSum < 21) {
-      alert ('Dealer BUST! You win!');
-      money += 2 * betAmount;
-    } else if (playerCardValSum > dealerCardValSum) {
-      alert('You Win!');
-      money += 2 * betAmount;
-    } else if (dealerCardValSum > playerCardValSum && dealerCardValSum < 21 && playerCardValSum < 21){
-      alert('You Lose!');
-    } else if (dealerCardValSum == 21 && playerCardValSum == 21){
-      alert('Push! Tie!')
-      money += betAmount;
-    } else if (dealerCardValSum == 21 && playerCardValSum < 21) {
-      alert('BlackJack of Dealer! You Lose!');
-    } else if (playerCardValSum == 21 && dealerCardValSum < 21) {
-      alert('BlackJack! You win!');
-      money += 2 * betAmount;
-    }
+      if (playerCardValSum == 21 && dealerCardValSum < 21) {
+        alert('BlackJack! You win!');
+        money += 2 * betAmount;
+      }
+      else if (dealerCardValSum == 21 && playerCardValSum < 21) {
+        alert('BlackJack of Dealer! You Lose!');
+      }
+      else if (dealerCardValSum == 21 && playerCardValSum == 21){
+        alert('Two way BlackJack! Push!')
+        money += betAmount;
+      }
+      else if(playerCardValSum == dealerCardValSum){
+        alert ('Push!');
+        money += betAmount;
+      }
+      else if (playerCardValSum > 21 && dealerCardValSum > 21){
+        alert('Two way Bust! Push!');
+        money += betAmount;
+      }
+      else if (playerCardValSum > 21 && dealerCardValSum < 21) {
+        alert('BUST! You lose!');
+      }
+      else if(dealerCardValSum > 21 && playerCardValSum < 21) {
+        alert ('Dealer BUST! You win!');
+        money += 2 * betAmount;
+      }
+      else if (playerCardValSum > dealerCardValSum) {
+        alert('You Win!');
+        money += 2 * betAmount;
+      }
+      else if (dealerCardValSum > playerCardValSum){
+        alert('You Lose!');
+      }
     betAmount = 0;
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
     if (money <= 5) {
-      alert("Sorry you Lost all your money!");
+      alert("Sorry you have no more money!");
 
     }
 
@@ -182,6 +194,7 @@ newGame.addEventListener('click', function(e) {
     cardsArr.push("spade_" + i);
   }
 
+deckOfCards = shuffle(cardsArr); 
   //deckOfCards = shuffle(cardsArr);
 
 
