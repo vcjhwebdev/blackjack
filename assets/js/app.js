@@ -5,22 +5,25 @@ var dealerCardValSum = 0;
 var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
-var bet = document.querySelector('.bet')
-var money = 500
-var betAmount = 0
+var bet = document.querySelector('.bet');
+var money = 500;
+var betAmount = 0;
 
 
 var dealerTurn = false;
 
 bet.addEventListener('click', function(e) {
-money -= 10
-betAmount += 10
-document.getElementById('money').innerHTML = 'Money: ' + money
+  var button = e.target;
+  var bet = parseInt(button.textContent);
+  money -= bet;
+  betAmount += bet;
+  document.getElementById('money').innerHTML = 'Money: ' + money;
+  document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
 
-})
+});
 
 hit.addEventListener('click', function(e) {
-  var firstHit = true
+  var firstHit = true;
   console.log("Players Turn");
 
   var nextCard = deckOfCards.pop();
@@ -31,20 +34,20 @@ hit.addEventListener('click', function(e) {
         var cardSplit = nextCard.split("_");
         var cardVal = cardSplit[1];
         if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
-          cardVal = 10
+          cardVal = 10;
         }
         else {
-          cardVal = parseInt(cardVal)
+          cardVal = parseInt(cardVal);
         }
 
-        playerCardValSum += cardVal
+        playerCardValSum += cardVal;
 
 
         var img = document.createElement("img");
 
         img.src = "img/cards/1x/" + nextCard + ".png";
         var src = document.getElementById("nextPlayCard");
-        console.log(cardVal)
+        console.log(cardVal);
 
           src.appendChild(img);
 
@@ -72,20 +75,20 @@ hold.addEventListener('click', function(e) {
           cardVal = cardSplit[1];
 
           if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
-            cardVal = 10
+            cardVal = 10;
           }
           else {
-            cardVal = parseInt(cardVal)
+            cardVal = parseInt(cardVal);
           }
 
-          dealerCardValSum += cardVal
+          dealerCardValSum += cardVal;
 
 
           var img2 = document.createElement("img");
 
           img2.src = "img/cards/1x/" + nextCard + ".png";
           var src2 = document.getElementById("dealerPlayCard");
-          console.log(cardVal)
+          console.log(cardVal);
 
             src2.appendChild(img2);
 
@@ -96,35 +99,37 @@ hold.addEventListener('click', function(e) {
 
     if(playerCardValSum == dealerCardValSum && playerCardValSum <= 21 && dealerCardValSum <= 21){
       alert ('Push!');
-      money += betAmount
+      money += betAmount;
     }else if (playerCardValSum > 21 && dealerCardValSum > 21){
-      alert('Push!')
-      money += betAmount
+      alert('Push!');
+      money += betAmount;
     } else if (playerCardValSum > 21 && dealerCardValSum < 21) {
       alert('BUST! You lose!');
     } else if(dealerCardValSum > 21 && playerCardValSum < 21) {
       alert ('Dealer BUST! You win!');
-      money += 2 * betAmount
+      money += 2 * betAmount;
     } else if (playerCardValSum > dealerCardValSum) {
       alert('You Win!');
-      money += 2 * betAmount
+      money += 2 * betAmount;
     } else if (dealerCardValSum > playerCardValSum && dealerCardValSum < 21 && playerCardValSum < 21){
       alert('You Lose!');
     } else if (dealerCardValSum == 21 && playerCardValSum == 21){
       alert('Push! Tie!')
-      money += betAmount
+      money += betAmount;
     } else if (dealerCardValSum == 21 && playerCardValSum < 21) {
       alert('BlackJack of Dealer! You Lose!');
     } else if (playerCardValSum == 21 && dealerCardValSum < 21) {
       alert('BlackJack! You win!');
-      money += 2 * betAmount
+      money += 2 * betAmount;
     }
-    document.getElementById('money').innerHTML = 'Money: ' + money
+    betAmount = 0;
+    document.getElementById('money').innerHTML = 'Money: ' + money;
+    document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
     if (money <= 5) {
-      alert("Sorry you Lost all your money!")
+      alert("Sorry you Lost all your money!");
 
     }
-    betAmount = 0
+
     playerCardValSum = 0;
     dealerCardValSum = 0;
     dealerTurn = false;
