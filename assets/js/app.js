@@ -9,6 +9,7 @@ var bet = document.querySelector('.bet');
 var money = 500;
 var betAmount = 0;
 var dealerTurn = false;
+var endGame = false
 
 
 
@@ -145,6 +146,7 @@ hold.addEventListener('click', function(e) {
     playerCardValSum = 0;
     dealerCardValSum = 0;
     dealerTurn = false;
+    endGame = true
   }, 1000);
 
   }
@@ -152,11 +154,14 @@ hold.addEventListener('click', function(e) {
 
 newGame.addEventListener('click', function(e) {
   //location.reload();
+  if (endGame == true) {
   document.getElementById('dealerPlayCard').innerHTML = ''
   document.getElementById('nextPlayCard').innerHTML = ''
 
   // clear the <img> tags from dealer...
   deckOfCards = shuffle(cardsArr);
+  endGame = false;
+}
   // and player
 
   // re-deal
@@ -194,7 +199,7 @@ newGame.addEventListener('click', function(e) {
     cardsArr.push("spade_" + i);
   }
 
-deckOfCards = shuffle(cardsArr); 
+deckOfCards = shuffle(cardsArr);
   //deckOfCards = shuffle(cardsArr);
 
 
