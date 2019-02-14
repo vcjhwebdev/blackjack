@@ -39,6 +39,7 @@ button {
 }
 
 .buttons button {
+  text-align: center;
   font-size: 60px;
   display: block;
 
@@ -47,7 +48,7 @@ button {
   float: right;
 }
 
-.bet:before {
+.bet button:before {
   content: "Bet $";
 }
 
@@ -55,6 +56,13 @@ button {
   text-align: center;
 }
 
-button {
-  text-align: center;
+/* .playerCard {
+  width: 10px;
+  length: 50px;
+} */
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
 }
