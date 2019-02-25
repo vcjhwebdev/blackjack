@@ -9,12 +9,12 @@ var bet = document.querySelector('.bet');
 var money = 500;
 var betAmount = 0;
 var dealerTurn = false;
-var endGame = false
+var endGame = true
 
 
 
 bet.addEventListener('click', function(e) {
-
+if (endGame == true) {
   var button = e.target;
   var bet = parseInt(button.textContent);
   if (bet > money) {
@@ -26,10 +26,14 @@ bet.addEventListener('click', function(e) {
   }
   document.getElementById('money').innerHTML = 'Money: ' + money;
   document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
-
+  }
+  else {
+    alert("You can only bet at the start of your turn")
+  }
 });
 
 hit.addEventListener('click', function(e) {
+  endGame = false;
   var firstHit = true;
   console.log("Players Turn");
 
@@ -102,11 +106,11 @@ hold.addEventListener('click', function(e) {
       }
     }
     setTimeout(function(){
-      if (playerCardValSum == 21 && dealerCardValSum < 21) {
+      if (playerCardValSum == 21 && dealerCardValSum != 21) {
         alert('BlackJack! You win!');
         money += 2 * betAmount;
       }
-      else if (dealerCardValSum == 21 && playerCardValSum < 21) {
+      else if (dealerCardValSum == 21 && playerCardValSum != 21) {
         alert('BlackJack of Dealer! You Lose!');
       }
       else if (dealerCardValSum == 21 && playerCardValSum == 21){
@@ -147,22 +151,32 @@ hold.addEventListener('click', function(e) {
     dealerCardValSum = 0;
     dealerTurn = false;
     endGame = true
+    document.getElementById('dealerPlayCard').innerHTML = ''
+    document.getElementById('nextPlayCard').innerHTML = ''
+
+    // clear the <img> tags from dealer...
+    deckOfCards = shuffle(cardsArr);
+
+
   }, 1000);
 
   }
 });
 
 newGame.addEventListener('click', function(e) {
-  //location.reload();
-  if (endGame == true) {
-  document.getElementById('dealerPlayCard').innerHTML = ''
-  document.getElementById('nextPlayCard').innerHTML = ''
+  location.reload();
+  /**if (endGame == true) {
 
-  // clear the <img> tags from dealer...
-  deckOfCards = shuffle(cardsArr);
-  endGame = false;
+    document.getElementById('dealerPlayCard').innerHTML = ''
+    document.getElementById('nextPlayCard').innerHTML = ''
+
+    // clear the <img> tags from dealer...
+    deckOfCards = shuffle(cardsArr);
+    endGame = false;
+    money = 500
 }
   // and player
+  **/
 
   // re-deal
 });
