@@ -142,7 +142,7 @@ hold.addEventListener('click', function(e) {
     betAmount = 0;
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
-    if (money <= 5) {
+    if (money < 5) {
       alert("Sorry you have no more money!");
 
     }
