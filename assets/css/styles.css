@@ -196,23 +196,23 @@ button {
   .playerCard,
   #dealer  {
     position: relative;
-    height: 200px;
+    height: 300px;
     /* width: 10px;
     length: 50px; */
   }
 
   .playerCard img {
     position: absolute;
-    left: calc(50% - 100px);
-    width: 200px;
+    left: calc(50% - 75px);
+    width: 150px;
     height: auto;
   }
 
   .dealerCard img {
     position: relative;
     position: absolute;
-    left: calc(50% - 100px);
-    width: 200px;
+    left: calc(50% - 75px);
+    width: 150px;
     height: auto;
   }
 
