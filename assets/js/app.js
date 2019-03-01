@@ -77,11 +77,12 @@ hit.addEventListener('click', function(e) {
 hold.addEventListener('click', function(e) {
 
 
+
     if (dealerTurn === true) {
       console.log("Dealers Turn");
 
       while (dealerCardValSum < 16) {
-        //setTimeout(function(){
+
 
         nextCard = deckOfCards.pop();
 
@@ -108,8 +109,10 @@ hold.addEventListener('click', function(e) {
           console.log(cardVal);
 
             src2.appendChild(img2);
-      }
-  //  }, 1000);
+          }
+
+
+
     }
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
