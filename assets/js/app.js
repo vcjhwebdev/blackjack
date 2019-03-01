@@ -10,8 +10,8 @@ var money = 500;
 var betAmount = 0;
 var dealerTurn = false;
 var endGame = true
-
-
+var numOfPlayerCards = 0;
+var numOfDealerCards = 0;
 
 bet.addEventListener('click', function(e) {
 if (endGame == true) {
@@ -33,6 +33,7 @@ if (endGame == true) {
 });
 
 hit.addEventListener('click', function(e) {
+
   endGame = false;
   var firstHit = true;
   console.log("Players Turn");
@@ -41,7 +42,7 @@ hit.addEventListener('click', function(e) {
   if (playerCardValSum < 21){
 
   if(nextCard !== undefined) {
-
+        numOfPlayerCards += 1;
         var cardSplit = nextCard.split("_");
         var cardVal = cardSplit[1];
         if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
@@ -54,9 +55,12 @@ hit.addEventListener('click', function(e) {
         playerCardValSum += cardVal;
 
 
-        var img = document.createElement("img");
+        var img = document.createElement("img"); // <img>
 
-        img.src = "img/cards/1x/" + nextCard + ".png";
+        img.src = "img/cards/1x/" + nextCard + ".png"; // <img src="">
+
+        img.style.top = (numOfPlayerCards * 30) + "px";
+
         var src = document.getElementById("nextPlayCard");
         console.log(cardVal);
 
@@ -73,15 +77,16 @@ hit.addEventListener('click', function(e) {
 hold.addEventListener('click', function(e) {
 
 
-
     if (dealerTurn === true) {
       console.log("Dealers Turn");
 
       while (dealerCardValSum < 16) {
+        //setTimeout(function(){
+
         nextCard = deckOfCards.pop();
 
         if(nextCard !== undefined) {
-
+          numOfDealerCards += 1
           cardSplit = nextCard.split("_");
           cardVal = cardSplit[1];
 
@@ -98,12 +103,13 @@ hold.addEventListener('click', function(e) {
           var img2 = document.createElement("img");
 
           img2.src = "img/cards/1x/" + nextCard + ".png";
+          img2.style.top = (numOfDealerCards * 30 + 100) + "px";
           var src2 = document.getElementById("dealerPlayCard");
           console.log(cardVal);
 
             src2.appendChild(img2);
-
       }
+  //  }, 1000);
     }
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
@@ -146,7 +152,8 @@ hold.addEventListener('click', function(e) {
       alert("Sorry you have no more money!");
 
     }
-
+    numOfDealerCards = 0;
+    numOfPlayerCards = 0;
     playerCardValSum = 0;
     dealerCardValSum = 0;
     dealerTurn = false;
