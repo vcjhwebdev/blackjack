@@ -60,7 +60,7 @@ hit.addEventListener('click', function(e) {
 
         img.src = "img/cards/1x/" + nextCard + ".png"; // <img src="">
 
-        img.style.top = (numOfPlayerCards * 30) + "px";
+        img.style.top = (numOfPlayerCards * 30 - 40) + "px";
 
         var src = document.getElementById("nextPlayCard");
         console.log(cardVal);
@@ -105,7 +105,7 @@ hold.addEventListener('click', function(e) {
           var img2 = document.createElement("img");
 
           img2.src = "img/cards/1x/" + nextCard + ".png";
-          img2.style.top = (numOfDealerCards * 30 + 100) + "px";
+          img2.style.top = (numOfDealerCards * 30 + 20) + "px";
           var src2 = document.getElementById("dealerPlayCard");
           console.log(cardVal);
 
