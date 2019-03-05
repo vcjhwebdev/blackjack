@@ -6,6 +6,7 @@ var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
 var bet = document.querySelector('.bet');
+var allIn = document.querySelector('.allIn')
 var money = 500;
 var betAmount = 0;
 var dealerTurn = false;
@@ -189,6 +190,21 @@ newGame.addEventListener('click', function(e) {
   **/
 
   // re-deal
+});
+allIn.addEventListener('click', function(e) {
+    if (endGame == true) {
+
+      var bet = money;
+      money -= bet;
+      betAmount += bet;
+    }
+    else {
+      alert("You can only bet at the start of your turn")
+    }
+    document.getElementById('money').innerHTML = 'Money: ' + money;
+    document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
+
+
 });
 
 
