@@ -166,6 +166,13 @@ hold.addEventListener('click', function(e) {
     document.getElementById('nextPlayCard').innerHTML = ''
 
     // clear the <img> tags from dealer...
+    cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
+    for (i=1; i<=10; i++) {
+      cardsArr.push("club_" + i);
+      cardsArr.push("diamond_" + i);
+      cardsArr.push("heart_" + i);
+      cardsArr.push("spade_" + i);
+    }
     deckOfCards = shuffle(cardsArr);
 
 

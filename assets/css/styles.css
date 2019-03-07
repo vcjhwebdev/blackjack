@@ -30,12 +30,19 @@ body {
 
 button {
   font-family: 'Architects Daughter', cursive;
-  box-shadow: 5px 10px;
   outline: 0;
+  text-align: center;
+  font-size: 30px;
+  display: block;
+  border: 1px solid blue;
+  background-color: gray;
+  border-radius: 8px;
+  margin: 0 auto;
+  width: 100%;
 }
-button {
-  text-align:center;
-
+button:active {
+  background-color: blue;
+  /* box-shadow: 0 0 16px 0 black inset; */
 }
 
 /* .border {
@@ -48,14 +55,6 @@ button {
 }
 .left{
   float: left;
-}
- button {
-  text-align: center;
-  font-size: 30px;
-  display: block;
-  border: 1px solid blue;
-  background-color: gray;
-
 }
 .right,
 .allIn {
