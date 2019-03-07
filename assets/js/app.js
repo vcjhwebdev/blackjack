@@ -13,6 +13,7 @@ var dealerTurn = false;
 var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
+var score = 0;
 
 bet.addEventListener('click', function(e) {
 if (endGame == true) {
@@ -182,21 +183,12 @@ hold.addEventListener('click', function(e) {
 });
 
 newGame.addEventListener('click', function(e) {
-  location.reload();
-  /**if (endGame == true) {
 
-    document.getElementById('dealerPlayCard').innerHTML = ''
-    document.getElementById('nextPlayCard').innerHTML = ''
+score = money
 
-    // clear the <img> tags from dealer...
-    deckOfCards = shuffle(cardsArr);
-    endGame = false;
-    money = 500
-}
-  // and player
-  **/
+window.reload()
 
-  // re-deal
+
 });
 allIn.addEventListener('click', function(e) {
     if (endGame == true) {
@@ -247,6 +239,51 @@ allIn.addEventListener('click', function(e) {
   }
 
 deckOfCards = shuffle(cardsArr);
+
+
+
+var highscoreTracker = {
+bestScore: 0,
+
+
+
+  click: function() {
+    if (score > this.bestScore) {
+      this.bestScore = score
+    }
+
+
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem("cookies", this.cookies);
+    } else {
+      console.log("Sorry, your browser does not support Web Storage");
+    }
+
+    this.update_screen();
+  },
+
+
+  update_screen: function() {
+    document.getElementById("highscore").innerHTML = "Personal High Score: " + this.bestScore;
+  },
+  init: function() {
+
+    if (typeof(Storage) !== "undefined") {
+
+      var c = localStorage.getItem("highscore");
+      if(c != null) {
+        highscoreTracker.bestScore = Number(c);
+        highscoreTracker.update_screen();
+      }
+
+    } else {
+      console.log("Sorry, your browser does not support Web Storage");
+
+    }
+  }
+}
+
+window.onload = highscoreTracker.init;
   //deckOfCards = shuffle(cardsArr);
 
 
