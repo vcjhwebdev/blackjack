@@ -175,7 +175,8 @@ hold.addEventListener('click', function(e) {
       cardsArr.push("spade_" + i);
     }
     deckOfCards = shuffle(cardsArr);
-
+    score = money
+    highscoreTracker.click()
 
   }, 1000);
 
@@ -184,8 +185,7 @@ hold.addEventListener('click', function(e) {
 
 newGame.addEventListener('click', function(e) {
 
-score = money
-highscoreTracker.click()
+
 
 money = 500
 document.getElementById('money').innerHTML = 'Money: ' + money;
