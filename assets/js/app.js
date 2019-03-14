@@ -186,8 +186,10 @@ newGame.addEventListener('click', function(e) {
 
 score = money
 highscoreTracker.click()
-document.getElementById('money').innerHTML = 'Money: ' + money;
+
 money = 500
+document.getElementById('money').innerHTML = 'Money: ' + money;
+
 //window.reload()
 
 
