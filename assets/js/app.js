@@ -185,8 +185,10 @@ hold.addEventListener('click', function(e) {
 newGame.addEventListener('click', function(e) {
 
 score = money
-
-window.reload()
+highscoreTracker.click()
+document.getElementById('money').innerHTML = 'Money: ' + money;
+money = 500
+//window.reload()
 
 
 });
@@ -250,14 +252,15 @@ bestScore: 0,
   click: function() {
     if (score > this.bestScore) {
       this.bestScore = score
-    }
+
 
 
     if (typeof(Storage) !== "undefined") {
-      localStorage.setItem("cookies", this.cookies);
+      localStorage.setItem("highscore", this.bestScore);
     } else {
       console.log("Sorry, your browser does not support Web Storage");
     }
+  }
 
     this.update_screen();
   },
@@ -285,7 +288,10 @@ bestScore: 0,
 
 window.onload = highscoreTracker.init;
   //deckOfCards = shuffle(cardsArr);
+/**
 
+
+**/
 
 
 
