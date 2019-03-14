@@ -281,6 +281,7 @@ bestScore: 0,
         highscoreTracker.update_screen();
       }
 
+
     } else {
       console.log("Sorry, your browser does not support Web Storage");
 
