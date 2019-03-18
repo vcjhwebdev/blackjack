@@ -92,7 +92,7 @@ hold.addEventListener('click', function(e) {
           dealerCardValSum += cardVal;
           var img2 = document.createElement("img");
           img2.src = "img/cards/1x/" + nextCard + ".png";
-          img2.style.top = (numOfDealerCards * 30 + 20) + "px";
+          img2.style.top = (numOfDealerCards * 30 + 110) + "px";
           var src2 = document.getElementById("dealerPlayCard");
 
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
