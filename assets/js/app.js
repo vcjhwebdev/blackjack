@@ -1,7 +1,6 @@
 var deckOfCards = [];
 var playerCardValSum = 0;
 var dealerCardValSum = 0;
-
 var hit = document.querySelector('.hit');
 var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
@@ -16,11 +15,11 @@ var numOfDealerCards = 0;
 var score = 0;
 
 bet.addEventListener('click', function(e) {
-if (endGame == true) {
-  var button = e.target;
-  var bet = parseInt(button.textContent);
-  if (bet > money) {
-  alert("Sorry, you don't have enough money to bet that much!")
+  if (endGame == true) {
+    var button = e.target;
+    var bet = parseInt(button.textContent);
+    if (bet > money) {
+      alert("Sorry, you don't have enough money to bet that much!")
   }
   else {
     money -= bet;
@@ -33,17 +32,12 @@ if (endGame == true) {
     alert("You can only bet at the start of your turn")
   }
 });
-
 hit.addEventListener('click', function(e) {
-
   endGame = false;
   var firstHit = true;
-  console.log("Players Turn");
-
   var nextCard = deckOfCards.pop();
   if (playerCardValSum < 21){
-
-  if(nextCard !== undefined) {
+    if(nextCard !== undefined) {
         numOfPlayerCards += 1;
         var cardSplit = nextCard.split("_");
         var cardVal = cardSplit[1];
@@ -61,42 +55,21 @@ hit.addEventListener('click', function(e) {
         else {
           cardVal = parseInt(cardVal);
         }
-
         playerCardValSum += cardVal;
-
-
         var img = document.createElement("img"); // <img>
-
         img.src = "img/cards/1x/" + nextCard + ".png"; // <img src="">
-
         img.style.top = (numOfPlayerCards * 30 - 40) + "px";
-
-        var src = document.getElementById("nextPlayCard");
-        console.log(cardVal);
-
+        var src = document.getElementById("nextPlayCard")
           src.appendChild(img);
           document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
-
           dealerTurn = true;
-
         }
     }
-
-
 });
-
 hold.addEventListener('click', function(e) {
-
-
-
     if (dealerTurn === true) {
-      console.log("Dealers Turn");
-
       while (dealerCardValSum < 16) {
-
-
         nextCard = deckOfCards.pop();
-
         if(nextCard !== undefined) {
           numOfDealerCards += 1
           cardSplit = nextCard.split("_");
@@ -116,22 +89,15 @@ hold.addEventListener('click', function(e) {
           else {
             cardVal = parseInt(cardVal);
           }
-
           dealerCardValSum += cardVal;
-
-
           var img2 = document.createElement("img");
-
           img2.src = "img/cards/1x/" + nextCard + ".png";
           img2.style.top = (numOfDealerCards * 30 + 20) + "px";
           var src2 = document.getElementById("dealerPlayCard");
-          console.log(cardVal);
+
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
           }
-
-
-
     }
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
@@ -171,8 +137,7 @@ hold.addEventListener('click', function(e) {
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
     if (money < 5) {
-      alert("Sorry you have no more money!");
-
+      alert("Sorry you have no more money! Restart?");
     }
     numOfDealerCards = 0;
     numOfPlayerCards = 0;
@@ -184,7 +149,6 @@ hold.addEventListener('click', function(e) {
     endGame = true
     document.getElementById('dealerPlayCard').innerHTML = ''
     document.getElementById('nextPlayCard').innerHTML = ''
-
     // clear the <img> tags from dealer...
     cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
     for (i=1; i<=10; i++) {
@@ -193,25 +157,14 @@ hold.addEventListener('click', function(e) {
       cardsArr.push("heart_" + i);
       cardsArr.push("spade_" + i);
     }
-    deckOfCards = shuffle(cardsArr);
-    score = money
-    highscoreTracker.click()
-
-  }, 1000);
-
+      deckOfCards = shuffle(cardsArr);
+      score = money
+      highscoreTracker.click()
+    }, 1000);
   }
 });
-
 newGame.addEventListener('click', function(e) {
-
-
-
-money = 500
-document.getElementById('money').innerHTML = 'Money: ' + money;
-
-//window.reload()
-
-
+location.reload();
 });
 allIn.addEventListener('click', function(e) {
     if (endGame == true) {
@@ -225,32 +178,20 @@ allIn.addEventListener('click', function(e) {
     }
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
-
-
 });
-
-
-
-  //function newGame() {
-  //deckOfCards = shuffle(cardsArr);
-
-  //}
 
   function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-
       // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
   var cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
@@ -260,16 +201,9 @@ allIn.addEventListener('click', function(e) {
     cardsArr.push("heart_" + i);
     cardsArr.push("spade_" + i);
   }
-
 deckOfCards = shuffle(cardsArr);
-
-
-
 var highscoreTracker = {
 bestScore: 0,
-
-
-
   click: function() {
     if (score > this.bestScore) {
       this.bestScore = score
@@ -279,14 +213,12 @@ bestScore: 0,
     if (typeof(Storage) !== "undefined") {
       localStorage.setItem("highscore", this.bestScore);
     } else {
-      console.log("Sorry, your browser does not support Web Storage");
+      //console.log("Sorry, your browser does not support Web Storage");
     }
   }
 
     this.update_screen();
   },
-
-
   update_screen: function() {
     document.getElementById("highscore").innerHTML = "Personal High Score: " + this.bestScore;
   },
@@ -299,22 +231,10 @@ bestScore: 0,
         highscoreTracker.bestScore = Number(c);
         highscoreTracker.update_screen();
       }
-
-
     } else {
-      console.log("Sorry, your browser does not support Web Storage");
+      //console.log("Sorry, your browser does not support Web Storage");
 
     }
   }
 }
-
 window.onload = highscoreTracker.init;
-  //deckOfCards = shuffle(cardsArr);
-/**
-
-
-**/
-
-
-
-//console.log(deckOfCards);
