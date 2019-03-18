@@ -50,6 +50,14 @@ hit.addEventListener('click', function(e) {
         if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
           cardVal = 10;
         }
+        else if (cardVal == "1"){
+          if (playerCardValSum > 10) {
+            cardVal = 1
+          }
+          else {
+            cardVal = 11
+          }
+        }
         else {
           cardVal = parseInt(cardVal);
         }
@@ -95,6 +103,14 @@ hold.addEventListener('click', function(e) {
 
           if (cardVal == "jack" || cardVal == "queen" || cardVal == "king") {
             cardVal = 10;
+          }
+          else if (cardVal == "1"){
+            if (dealerCardValSum > 10) {
+              cardVal = 1
+            }
+            else {
+              cardVal = 11
+            }
           }
           else {
             cardVal = parseInt(cardVal);
