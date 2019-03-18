@@ -28,6 +28,10 @@ body {
   font-family: 'Rock Salt', cursive;
 }
 
+#highscore {
+  color: tan;
+}
+
 button {
   font-family: 'Architects Daughter', cursive;
   outline: 0;
@@ -157,6 +161,12 @@ button:active {
 
 /* --> 768px */
 @media (min-width: 768px) {
+    #play-area{
+      display:flex;
+    }
+    #play-area > * {
+      flex: 1 0 50%;
+    }
 
    button {
     text-align: center;
