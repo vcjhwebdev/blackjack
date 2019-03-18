@@ -75,6 +75,7 @@ hit.addEventListener('click', function(e) {
         console.log(cardVal);
 
           src.appendChild(img);
+          document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
 
           dealerTurn = true;
 
@@ -125,7 +126,7 @@ hold.addEventListener('click', function(e) {
           img2.style.top = (numOfDealerCards * 30 + 20) + "px";
           var src2 = document.getElementById("dealerPlayCard");
           console.log(cardVal);
-
+            document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
           }
 
@@ -176,7 +177,9 @@ hold.addEventListener('click', function(e) {
     numOfDealerCards = 0;
     numOfPlayerCards = 0;
     playerCardValSum = 0;
+    document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
     dealerCardValSum = 0;
+    document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
     dealerTurn = false;
     endGame = true
     document.getElementById('dealerPlayCard').innerHTML = ''
