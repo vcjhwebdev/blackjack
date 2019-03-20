@@ -178,7 +178,7 @@ hold.addEventListener('click', function(e) {
       deckOfCards = shuffle(cardsArr);
       score = money
       highscoreTracker.click()
-    }, 1000);
+    }, 4000);
   }
 });
 newGame.addEventListener('click', function(e) {
