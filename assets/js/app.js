@@ -8,18 +8,36 @@ var bet = document.querySelector('.bet');
 var allIn = document.querySelector('.allIn')
 var money = 500;
 var betAmount = 0;
-var dealerTurn = false;
+var deplaceModalurn = false;
 var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
+
+// place modal will generate modal and place it
+function placeModal(content) {
+  var modal = document.createElement('div');
+  modal.className = 'modal';
+  var modalContent = `
+    <div class="modal-content">
+      <h1>${content}!</h1>
+      <button class="modalButton">Continue</button>
+    </div>`;
+  modal.innerHTML = modalContent;
+  var modalButton = modal.querySelector('.modalButton');
+  var body = document.querySelector('body');
+  body.insertBefore(modal, body.children[0]);
+  modalButton.addEventListener('click', function(e){
+    body.removeChild(modal);
+  });
+}
 
 bet.addEventListener('click', function(e) {
   if (endGame == true) {
     var button = e.target;
     var bet = parseInt(button.textContent);
     if (bet > money) {
-      alert("Sorry, you don't have enough money to bet that much!")
+      placeModal("Sorry, you don't have enough money to bet that much!")
   }
   else {
     money -= bet;
@@ -29,7 +47,7 @@ bet.addEventListener('click', function(e) {
   document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
   }
   else {
-    alert("You can only bet at the start of your turn")
+    placeModal("You can only bet at the start of your turn")
   }
 });
 hit.addEventListener('click', function(e) {
@@ -62,12 +80,12 @@ hit.addEventListener('click', function(e) {
         var src = document.getElementById("nextPlayCard")
           src.appendChild(img);
           document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
-          dealerTurn = true;
+          deplaceModalurn = true;
         }
     }
 });
 hold.addEventListener('click', function(e) {
-    if (dealerTurn === true) {
+    if (deplaceModalurn === true) {
       while (dealerCardValSum < 16) {
         nextCard = deckOfCards.pop();
         if(nextCard !== undefined) {
@@ -101,43 +119,43 @@ hold.addEventListener('click', function(e) {
     }
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
-        alert('BlackJack! You win!');
+        placeModal('BlackJack! You win!');
         money += 2 * betAmount;
       }
       else if (dealerCardValSum == 21 && playerCardValSum != 21) {
-        alert('BlackJack of Dealer! You Lose!');
+        placeModal('BlackJack of Dealer! You Lose!');
       }
       else if (dealerCardValSum == 21 && playerCardValSum == 21){
-        alert('Two way BlackJack! Push!')
+        placeModal('Two way BlackJack! Push!')
         money += betAmount;
       }
       else if(playerCardValSum == dealerCardValSum){
-        alert ('Push!');
+        placeModal ('Push!');
         money += betAmount;
       }
       else if (playerCardValSum > 21 && dealerCardValSum > 21){
-        alert('Two way Bust! Push!');
+        placeModal('Two way Bust! Push!');
         money += betAmount;
       }
       else if (playerCardValSum > 21 && dealerCardValSum < 21) {
-        alert('BUST! You lose!');
+        placeModal('BUST! You lose!');
       }
       else if(dealerCardValSum > 21 && playerCardValSum < 21) {
-        alert ('Dealer BUST! You win!');
+        placeModal ('Dealer BUST! You win!');
         money += 2 * betAmount;
       }
       else if (playerCardValSum > dealerCardValSum) {
-        alert('You Win!');
+        placeModal('You Win!');
         money += 2 * betAmount;
       }
       else if (dealerCardValSum > playerCardValSum){
-        alert('You Lose!');
+        placeModal('You Lose!');
       }
     betAmount = 0;
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
     if (money < 5) {
-      alert("Sorry you have no more money! Restart?");
+      placeModal("Sorry, you have no more money!");
     }
     numOfDealerCards = 0;
     numOfPlayerCards = 0;
@@ -145,7 +163,7 @@ hold.addEventListener('click', function(e) {
     document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
     dealerCardValSum = 0;
     document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
-    dealerTurn = false;
+    deplaceModalurn = false;
     endGame = true
     document.getElementById('dealerPlayCard').innerHTML = ''
     document.getElementById('nextPlayCard').innerHTML = ''
@@ -174,7 +192,7 @@ allIn.addEventListener('click', function(e) {
       betAmount += bet;
     }
     else {
-      alert("You can only bet at the start of your turn")
+      placeModal("You can only bet at the start of your turn")
     }
     document.getElementById('money').innerHTML = 'Money: ' + money;
     document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
