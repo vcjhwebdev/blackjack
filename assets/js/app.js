@@ -86,7 +86,7 @@ hit.addEventListener('click', function(e) {
           document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
           deplaceModalurn = true;
         }
-        if hasAceP == true && playerCardValSum > 21{
+        if (hasAceP == true && playerCardValSum > 21) {
           playerCardValSum -= 10
         }
     }
@@ -124,7 +124,7 @@ hold.addEventListener('click', function(e) {
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
           }
-          if hasAceD == true && dealerCardValSum > 21{
+          if (hasAceD == true && dealerCardValSum > 21){
             dealerCardValSum -= 10
           }
     }
