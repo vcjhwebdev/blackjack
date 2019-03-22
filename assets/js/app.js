@@ -13,6 +13,8 @@ var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
+var hasAceP = false
+var hasAceD = false
 
 // place modal will generate modal and place it
 function placeModal(content) {
@@ -51,6 +53,7 @@ bet.addEventListener('click', function(e) {
   }
 });
 hit.addEventListener('click', function(e) {
+
   endGame = false;
   var firstHit = true;
   var nextCard = deckOfCards.pop();
@@ -67,6 +70,7 @@ hit.addEventListener('click', function(e) {
             cardVal = 1
           }
           else {
+            hasAceP = true
             cardVal = 11
           }
         }
@@ -81,6 +85,9 @@ hit.addEventListener('click', function(e) {
           src.appendChild(img);
           document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
           deplaceModalurn = true;
+        }
+        if hasAceP == true && playerCardValSum > 21{
+          playerCardValSum -= 10
         }
     }
 });
@@ -101,6 +108,7 @@ hold.addEventListener('click', function(e) {
               cardVal = 1
             }
             else {
+              hasAceD = true
               cardVal = 11
             }
           }
@@ -115,6 +123,9 @@ hold.addEventListener('click', function(e) {
 
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
+          }
+          if hasAceD == true && dealerCardValSum > 21{
+            dealerCardValSum -= 10
           }
     }
     setTimeout(function(){
@@ -157,6 +168,8 @@ hold.addEventListener('click', function(e) {
     if (money < 5) {
       placeModal("Sorry, you have no more money!");
     }
+    hasAceD = false
+    hasAceP = false
     numOfDealerCards = 0;
     numOfPlayerCards = 0;
     playerCardValSum = 0;
