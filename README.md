@@ -4,7 +4,7 @@ APP DESCRIPTION HERE
 
 ## Authors
 
-- [Rishi Wadhwa](jeffttimm.github.io)
+- [Rishi Wadhwa](https://jeffttimm.github.io/)
 - [Lucas Zheng](johnny59@github.io)
 - [Bharath Malipeddi](Donald042@github.io)
 - Thanks to [htdebeer](https://github.com/htdebeer/SVG-cards) for the card pngs!
