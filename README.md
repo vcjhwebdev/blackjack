@@ -4,9 +4,9 @@ APP DESCRIPTION HERE
 
 ## Authors
 
-- [Rishi Wadhwa](http://link-to-website-here/)
-- [Lucas Zheng](http://link-to-website-here/)
-- [Bharath Malipeddi](http://link-to-website-here/)
+- [Rishi Wadhwa](jeffttimm.github.io)
+- [Lucas Zheng](johnny59@github.io)
+- [Bharath Malipeddi](Donald042@github.io)
 - Thanks to [htdebeer](https://github.com/htdebeer/SVG-cards) for the card pngs!
 
 ## Features
@@ -18,10 +18,15 @@ APP DESCRIPTION HERE
 - Working buttons
 - hit and hold buttons
 - links
+- betting
 
 
 ### Changelog
 
 **Version 0.1**
 
-- CHANGES HERE
+- localStorage now incorporated
+- Counter for player and dealer cards sum
+- Money and betting enabled
+- Ace = 1 or 11
+- Cards are counted and have value

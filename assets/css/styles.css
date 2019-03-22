@@ -102,6 +102,10 @@ button:active {
 
 } */
 
+h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
+  color: #48A0CC;
+}
+
 .buttons {
   width: 50%;
 }
