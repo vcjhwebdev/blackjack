@@ -5,8 +5,8 @@ APP DESCRIPTION HERE
 ## Authors
 
 - [Rishi Wadhwa](https://jeffttimm.github.io/)
-- [Lucas Zheng](johnny59.github.io)
-- [Bharath Malipeddi](Donald042.github.io)
+- [Lucas Zheng](https://johnny59.github.io)
+- [Bharath Malipeddi](https://Donald042.github.io)
 - Thanks to [htdebeer](https://github.com/htdebeer/SVG-cards) for the card pngs!
 
 ## Features
