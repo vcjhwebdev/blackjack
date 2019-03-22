@@ -4,7 +4,12 @@
 body{
   margin:0;
 }
-
+#play-area{
+  display:flex;
+}
+#play-area > * {
+  flex: 1 0 50%;
+}
 /* 320 --> <-- 768 */
 .allIn {
   text-align: center;
@@ -149,15 +154,11 @@ button:active {
   button {
     text-align:center;
   }
- .bet {
-   display: none;
- }
- .Money{
-   display: none;
- }
- .allIn {
-   display: none;
- }
+
+  modal-content{
+    font-size: 20px;
+  }
+
  header {
    text-align: center;
    font-size: 10px;
@@ -182,16 +183,16 @@ button:active {
 
  .playerCard img {
    position: absolute;
-   left: calc(50% - 45px);
-   width: 90px;
+   left: calc(50% - 35px);
+   width: 70px;
    height: auto;
  }
 
  .dealerCard img {
    position: relative;
    position: absolute;
-   left: calc(50% - 45px);
-   width: 90px;
+   left: calc(50% - 35px);
+   width: 70px;
    height: auto;
  }
 
@@ -200,16 +201,15 @@ button:active {
      color: red;
  }
 
+ h2 {
+   font-size: 20px;
+ }
+
 }
 
 /* --> 768px */
 @media (min-width: 768px) {
-    #play-area{
-      display:flex;
-    }
-    #play-area > * {
-      flex: 1 0 50%;
-    }
+
 
    button {
     text-align: center;
