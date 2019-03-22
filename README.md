@@ -1,19 +1,32 @@
-# APP NAME HERE
+# BlackJack
 
-APP DESCRIPTION HERE
+Working classic blackjack with interesting colors and working betting, all on a non-gambling website that does not take your w=money while allowing you to play freely like a regular blackjack game.
 
 ## Authors
 
-- [STUDENT NAME HERE](http://link-to-website-here/)
-- [STUDENT NAME HERE](http://link-to-website-here/)
-- [STUDENT NAME HERE](http://link-to-website-here/)
+- [Rishi Wadhwa](https://jeffttimm.github.io/)
+- [Lucas Zheng](https://johnny59h.github.io)
+- [Bharath Malipeddi](https://donald042.github.io)
+- Thanks to [htdebeer](https://github.com/htdebeer/SVG-cards) for the card pngs!
 
 ## Features
 
-- APP FEATURES HERE
+- Start
+- Settings
+- Info/Rule
+- Credits
+- Working buttons
+- hit and hold buttons
+- links
+- betting
+
 
 ### Changelog
 
 **Version 0.1**
 
-- CHANGES HERE
+- localStorage now incorporated
+- Counter for player and dealer cards sum
+- Money and betting enabled
+- Ace = 1 or 11
+- Cards are counted and have value
