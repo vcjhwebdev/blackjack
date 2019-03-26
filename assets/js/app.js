@@ -13,8 +13,8 @@ var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
-var hasAceP = false
-var hasAceD = false
+//var hasAceP = false
+//var hasAceD = false
 
 // place modal will generate modal and place it
 function placeModal(content) {
@@ -70,7 +70,7 @@ hit.addEventListener('click', function(e) {
             cardVal = 1
           }
           else {
-            hasAceP = true
+            //hasAceP = true
             cardVal = 11
           }
         }
@@ -83,12 +83,13 @@ hit.addEventListener('click', function(e) {
         img.style.top = (numOfPlayerCards * 30 - 40) + "px";
         var src = document.getElementById("nextPlayCard")
           src.appendChild(img);
-          document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
+
           deplaceModalurn = true;
         }
-        if (hasAceP == true && playerCardValSum > 21) {
-          playerCardValSum -= 10
-        }
+        //if (hasAceP == true && playerCardValSum > 21) {
+          //playerCardValSum -= 10
+        //}
+        document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
     }
 });
 hold.addEventListener('click', function(e) {
@@ -108,7 +109,7 @@ hold.addEventListener('click', function(e) {
               cardVal = 1
             }
             else {
-              hasAceD = true
+              //hasAceD = true
               cardVal = 11
             }
           }
@@ -123,10 +124,12 @@ hold.addEventListener('click', function(e) {
 
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
+            
           }
-          if (hasAceD == true && dealerCardValSum > 21){
-            dealerCardValSum -= 10
-          }
+          //if (hasAceD == true && dealerCardValSum > 21){
+            //dealerCardValSum -= 10
+        //}
+
     }
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
@@ -194,6 +197,7 @@ hold.addEventListener('click', function(e) {
     }, 2000);
   }
 });
+
 newGame.addEventListener('click', function(e) {
 location.reload();
 });
