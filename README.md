@@ -30,3 +30,7 @@ Working classic blackjack with interesting colors and working betting, all on a 
 - Money and betting enabled
 - Ace = 1 or 11
 - Cards are counted and have value
+
+**Version 1.1**
+
+- PWA icons fixed
