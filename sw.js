@@ -2,8 +2,8 @@ const CACHE_NAME = 'v2.0';
 
 var urlsToCache = [
 	'index.html',
-	'assets/css/style.css',
-	'assets/js/calculator.js'
+	'assets/css/styles.css',
+	'assets/js/app.js'
 ];
 
 self.addEventListener('install', function(event) {

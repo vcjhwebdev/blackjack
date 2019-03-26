@@ -34,3 +34,4 @@ Working classic blackjack with interesting colors and working betting, all on a 
 **Version 1.1**
 
 - PWA icons fixed
+- PWA service worker test
