@@ -23,7 +23,7 @@ Working classic blackjack with interesting colors and working betting, all on a 
 
 ### Changelog
 
-**Version 0.1**
+**Version 1.0**
 
 - localStorage now incorporated
 - Counter for player and dealer cards sum
