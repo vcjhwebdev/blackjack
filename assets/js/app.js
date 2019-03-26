@@ -124,7 +124,7 @@ hold.addEventListener('click', function(e) {
 
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
-            sleep(1000)
+            
           }
           //if (hasAceD == true && dealerCardValSum > 21){
             //dealerCardValSum -= 10
@@ -197,14 +197,7 @@ hold.addEventListener('click', function(e) {
     }, 2000);
   }
 });
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
+
 newGame.addEventListener('click', function(e) {
 location.reload();
 });
