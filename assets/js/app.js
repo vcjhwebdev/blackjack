@@ -93,9 +93,10 @@ hit.addEventListener('click', function(e) {
     }
 });
 hold.addEventListener('click', function(e) {
+  numOfDealerCards = 0
     if (deplaceModalurn === true) {
       //while (dealerCardValSum < 16) {
-      var cardInterval = setInterval(dealerCardPlace, 1000);
+      var cardInterval = setInterval(dealerCardPlace, 500);
       function dealerCardPlace() {
         if (dealerCardValSum > 16) {
           clearInterval(cardInterval);
@@ -134,11 +135,13 @@ hold.addEventListener('click', function(e) {
           }
         }
       }
+
           //if (hasAceD == true && dealerCardValSum > 21){
             //dealerCardValSum -= 10
         //}
 
     //}
+
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
         placeModal('BlackJack! You win!');
@@ -181,7 +184,6 @@ hold.addEventListener('click', function(e) {
     }
     hasAceD = false
     hasAceP = false
-    numOfDealerCards = 0;
     numOfPlayerCards = 0;
     playerCardValSum = 0;
     document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
@@ -204,20 +206,14 @@ hold.addEventListener('click', function(e) {
       highscoreTracker.click()
       var img3 = document.createElement("img");
       var img4 = document.createElement("img");
-
       img3.src = "img/cards/1x/back-red.png";
       var src3 = document.getElementById("nextPlayCard");
       src3.appendChild(img3);
-
       img4.src = "img/cards/1x/back-red.png";
       var src4 = document.getElementById("dealerPlayCard");
       src4.appendChild(img4);
-
-
-    }, 8000);
+    }, 6000);
   }
-
-
 });
 
 newGame.addEventListener('click', function(e) {
