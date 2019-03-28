@@ -94,7 +94,13 @@ hit.addEventListener('click', function(e) {
 });
 hold.addEventListener('click', function(e) {
     if (deplaceModalurn === true) {
-      while (dealerCardValSum < 16) {
+      //while (dealerCardValSum < 16) {
+      var cardInterval = setInterval(dealerCardPlace, 1000);
+      function dealerCardPlace() {
+        if (dealerCardValSum > 16) {
+          clearInterval(cardInterval);
+        }
+        else {
         nextCard = deckOfCards.pop();
         if(nextCard !== undefined) {
           numOfDealerCards += 1
@@ -126,11 +132,13 @@ hold.addEventListener('click', function(e) {
             src2.appendChild(img2);
 
           }
+        }
+      }
           //if (hasAceD == true && dealerCardValSum > 21){
             //dealerCardValSum -= 10
         //}
 
-    }
+    //}
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
         placeModal('BlackJack! You win!');
@@ -206,7 +214,7 @@ hold.addEventListener('click', function(e) {
       src4.appendChild(img4);
 
 
-    }, 2000);
+    }, 8000);
   }
 
 
