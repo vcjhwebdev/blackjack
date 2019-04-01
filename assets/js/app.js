@@ -49,7 +49,7 @@ bet.addEventListener('click', function(e) {
   document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
   }
   else {
-    placeModal("You can only bet at the start of your turn")
+    placeModal("You can only bet at the start of your turn!")
   }
 });
 hit.addEventListener('click', function(e) {
@@ -80,7 +80,7 @@ hit.addEventListener('click', function(e) {
         playerCardValSum += cardVal;
         var img = document.createElement("img"); // <img>
         img.src = "img/cards/1x/" + nextCard + ".png"; // <img src="">
-        img.style.top = (numOfPlayerCards * 30 - 40) + "px";
+        img.style.top = (numOfPlayerCards * 30 - 30) + "px";
         var src = document.getElementById("nextPlayCard")
           src.appendChild(img);
 
@@ -93,8 +93,15 @@ hit.addEventListener('click', function(e) {
     }
 });
 hold.addEventListener('click', function(e) {
+  numOfDealerCards = 0
     if (deplaceModalurn === true) {
-      while (dealerCardValSum < 16) {
+      //while (dealerCardValSum < 16) {
+      var cardInterval = setInterval(dealerCardPlace, 500);
+      function dealerCardPlace() {
+        if (dealerCardValSum > 16) {
+          clearInterval(cardInterval);
+        }
+        else {
         nextCard = deckOfCards.pop();
         if(nextCard !== undefined) {
           numOfDealerCards += 1
@@ -119,18 +126,22 @@ hold.addEventListener('click', function(e) {
           dealerCardValSum += cardVal;
           var img2 = document.createElement("img");
           img2.src = "img/cards/1x/" + nextCard + ".png";
-          img2.style.top = (numOfDealerCards * 30 + 110) + "px";
+          img2.style.top = (numOfDealerCards * 30 + 120) + "px";
           var src2 = document.getElementById("dealerPlayCard");
 
             document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
             src2.appendChild(img2);
-            
+
           }
+        }
+      }
+
           //if (hasAceD == true && dealerCardValSum > 21){
             //dealerCardValSum -= 10
         //}
 
-    }
+    //}
+
     setTimeout(function(){
       if (playerCardValSum == 21 && dealerCardValSum != 21) {
         placeModal('BlackJack! You win!');
@@ -173,7 +184,6 @@ hold.addEventListener('click', function(e) {
     }
     hasAceD = false
     hasAceP = false
-    numOfDealerCards = 0;
     numOfPlayerCards = 0;
     playerCardValSum = 0;
     document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
@@ -194,7 +204,15 @@ hold.addEventListener('click', function(e) {
       deckOfCards = shuffle(cardsArr);
       score = money
       highscoreTracker.click()
-    }, 2000);
+      var img3 = document.createElement("img");
+      var img4 = document.createElement("img");
+      img3.src = "img/cards/1x/back-red.png";
+      var src3 = document.getElementById("nextPlayCard");
+      src3.appendChild(img3);
+      img4.src = "img/cards/1x/back-red.png";
+      var src4 = document.getElementById("dealerPlayCard");
+      src4.appendChild(img4);
+    }, 6000);
   }
 });
 
