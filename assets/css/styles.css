@@ -30,16 +30,12 @@ body{
     margin-bottom: 0px;
     margin-right: auto;
     margin-left: auto;
-    padding: 0 1em;
+    padding: 1em 1em;
     border-radius: 8px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    padding-top: 0px;
-    padding-right: 1em;
-    padding-bottom: 0px;
-    padding-left: 1em;
   }
 
   .modal{
