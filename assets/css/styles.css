@@ -3,6 +3,7 @@
 
 body{
   margin:0;
+  cursor: crosshair;
 }
 #play-area{
   display:flex;
@@ -87,6 +88,7 @@ button {
   border-radius: 8px;
   margin: 0 auto;
   width: 100%;
+  cursor:cell;
 }
 button:active {
   background-color: blue;
