@@ -6,6 +6,7 @@ var hold = document.querySelector('.hold');
 var newGame = document.querySelector('.new-game');
 var bet = document.querySelector('.bet');
 var allIn = document.querySelector('.allIn')
+//var rules = document.querySelector('.rules')
 var money = 500;
 var betAmount = 0;
 var deplaceModalurn = false;
@@ -17,6 +18,12 @@ var score = 0;
 //var hasAceD = false
 
 // place modal will generate modal and place it
+//rules.addEventListener('click', function(e) {
+  //placeModal('The point of the game is to get either 21 points from your cards or get closer to 21 than the computer. However, once you get over 21, you lose. If you and the computer get over 21, you tie. Each cards points is its face value, or if it is a royalty it is a ten. Aces are 1 or 11, depending which would help you the most. You can Hit(placing a card), Hold(Computer places his cards), and bet to earn money. Your personal Highscore will be recorded. HAVE FUN :)')
+
+
+//})
+
 function placeModal(content) {
   var modal = document.createElement('div');
   modal.className = 'modal';
