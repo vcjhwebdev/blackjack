@@ -140,79 +140,226 @@ hold.addEventListener('click', function(e) {
             //dealerCardValSum -= 10
         //}
 
-    //}
-
-    setTimeout(function(){
-      if (playerCardValSum == 21 && dealerCardValSum != 21) {
-        placeModal('BlackJack! You win!');
-        money += 2 * betAmount;
+      //}
+  if (numOfDealerCards == 2 || numOfDealerCards == 3) {
+      setTimeout(function(){
+        if (playerCardValSum == 21 && dealerCardValSum != 21) {
+          placeModal('BlackJack! You win!');
+          money += 2 * betAmount;
+        }
+        else if (dealerCardValSum == 21 && playerCardValSum != 21) {
+          placeModal('BlackJack of Dealer! You Lose!');
+        }
+        else if (dealerCardValSum == 21 && playerCardValSum == 21){
+          placeModal('Two way BlackJack! Push!')
+          money += betAmount;
+        }
+        else if(playerCardValSum == dealerCardValSum){
+          placeModal ('Push!');
+          money += betAmount;
+        }
+        else if (playerCardValSum > 21 && dealerCardValSum > 21){
+          placeModal('Two way Bust! Push!');
+          money += betAmount;
+        }
+        else if (playerCardValSum > 21 && dealerCardValSum < 21) {
+          placeModal('BUST! You lose!');
+        }
+        else if(dealerCardValSum > 21 && playerCardValSum < 21) {
+          placeModal ('Dealer BUST! You win!');
+          money += 2 * betAmount;
+        }
+        else if (playerCardValSum > dealerCardValSum) {
+          placeModal('You Win!');
+          money += 2 * betAmount;
+        }
+        else if (dealerCardValSum > playerCardValSum){
+          placeModal('You Lose!');
+        }
+      betAmount = 0;
+      document.getElementById('money').innerHTML = 'Money: ' + money;
+      document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
+      if (money < 5) {
+        placeModal("Sorry, you have no more money!");
       }
-      else if (dealerCardValSum == 21 && playerCardValSum != 21) {
-        placeModal('BlackJack of Dealer! You Lose!');
+      hasAceD = false
+      hasAceP = false
+      numOfPlayerCards = 0;
+      playerCardValSum = 0;
+      document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
+      dealerCardValSum = 0;
+      document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
+      deplaceModalurn = false;
+      endGame = true
+      document.getElementById('dealerPlayCard').innerHTML = ''
+      document.getElementById('nextPlayCard').innerHTML = ''
+      // clear the <img> tags from dealer...
+      cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
+      for (i=1; i<=10; i++) {
+        cardsArr.push("club_" + i);
+        cardsArr.push("diamond_" + i);
+        cardsArr.push("heart_" + i);
+        cardsArr.push("spade_" + i);
       }
-      else if (dealerCardValSum == 21 && playerCardValSum == 21){
-        placeModal('Two way BlackJack! Push!')
-        money += betAmount;
-      }
-      else if(playerCardValSum == dealerCardValSum){
-        placeModal ('Push!');
-        money += betAmount;
-      }
-      else if (playerCardValSum > 21 && dealerCardValSum > 21){
-        placeModal('Two way Bust! Push!');
-        money += betAmount;
-      }
-      else if (playerCardValSum > 21 && dealerCardValSum < 21) {
-        placeModal('BUST! You lose!');
-      }
-      else if(dealerCardValSum > 21 && playerCardValSum < 21) {
-        placeModal ('Dealer BUST! You win!');
-        money += 2 * betAmount;
-      }
-      else if (playerCardValSum > dealerCardValSum) {
-        placeModal('You Win!');
-        money += 2 * betAmount;
-      }
-      else if (dealerCardValSum > playerCardValSum){
-        placeModal('You Lose!');
-      }
-    betAmount = 0;
-    document.getElementById('money').innerHTML = 'Money: ' + money;
-    document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
-    if (money < 5) {
-      placeModal("Sorry, you have no more money!");
+        deckOfCards = shuffle(cardsArr);
+        score = money
+        highscoreTracker.click()
+        var img3 = document.createElement("img");
+        var img4 = document.createElement("img");
+        img3.src = "img/cards/1x/back-red.png";
+        var src3 = document.getElementById("nextPlayCard");
+        src3.appendChild(img3);
+        img4.src = "img/cards/1x/back-red.png";
+        var src4 = document.getElementById("dealerPlayCard");
+        src4.appendChild(img4);
+      }, 2000);
     }
-    hasAceD = false
-    hasAceP = false
-    numOfPlayerCards = 0;
-    playerCardValSum = 0;
-    document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
-    dealerCardValSum = 0;
-    document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
-    deplaceModalurn = false;
-    endGame = true
-    document.getElementById('dealerPlayCard').innerHTML = ''
-    document.getElementById('nextPlayCard').innerHTML = ''
-    // clear the <img> tags from dealer...
-    cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
-    for (i=1; i<=10; i++) {
-      cardsArr.push("club_" + i);
-      cardsArr.push("diamond_" + i);
-      cardsArr.push("heart_" + i);
-      cardsArr.push("spade_" + i);
-    }
-      deckOfCards = shuffle(cardsArr);
-      score = money
-      highscoreTracker.click()
-      var img3 = document.createElement("img");
-      var img4 = document.createElement("img");
-      img3.src = "img/cards/1x/back-red.png";
-      var src3 = document.getElementById("nextPlayCard");
-      src3.appendChild(img3);
-      img4.src = "img/cards/1x/back-red.png";
-      var src4 = document.getElementById("dealerPlayCard");
-      src4.appendChild(img4);
-    }, 6000);
+    if (numOfDealerCards == 4 || numOfDealerCards == 5) {
+        setTimeout(function(){
+          if (playerCardValSum == 21 && dealerCardValSum != 21) {
+            placeModal('BlackJack! You win!');
+            money += 2 * betAmount;
+          }
+          else if (dealerCardValSum == 21 && playerCardValSum != 21) {
+            placeModal('BlackJack of Dealer! You Lose!');
+          }
+          else if (dealerCardValSum == 21 && playerCardValSum == 21){
+            placeModal('Two way BlackJack! Push!')
+            money += betAmount;
+          }
+          else if(playerCardValSum == dealerCardValSum){
+            placeModal ('Push!');
+            money += betAmount;
+          }
+          else if (playerCardValSum > 21 && dealerCardValSum > 21){
+            placeModal('Two way Bust! Push!');
+            money += betAmount;
+          }
+          else if (playerCardValSum > 21 && dealerCardValSum < 21) {
+            placeModal('BUST! You lose!');
+          }
+          else if(dealerCardValSum > 21 && playerCardValSum < 21) {
+            placeModal ('Dealer BUST! You win!');
+            money += 2 * betAmount;
+          }
+          else if (playerCardValSum > dealerCardValSum) {
+            placeModal('You Win!');
+            money += 2 * betAmount;
+          }
+          else if (dealerCardValSum > playerCardValSum){
+            placeModal('You Lose!');
+          }
+        betAmount = 0;
+        document.getElementById('money').innerHTML = 'Money: ' + money;
+        document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
+        if (money < 5) {
+          placeModal("Sorry, you have no more money!");
+        }
+        hasAceD = false
+        hasAceP = false
+        numOfPlayerCards = 0;
+        playerCardValSum = 0;
+        document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
+        dealerCardValSum = 0;
+        document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
+        deplaceModalurn = false;
+        endGame = true
+        document.getElementById('dealerPlayCard').innerHTML = ''
+        document.getElementById('nextPlayCard').innerHTML = ''
+        // clear the <img> tags from dealer...
+        cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
+        for (i=1; i<=10; i++) {
+          cardsArr.push("club_" + i);
+          cardsArr.push("diamond_" + i);
+          cardsArr.push("heart_" + i);
+          cardsArr.push("spade_" + i);
+        }
+          deckOfCards = shuffle(cardsArr);
+          score = money
+          highscoreTracker.click()
+          var img3 = document.createElement("img");
+          var img4 = document.createElement("img");
+          img3.src = "img/cards/1x/back-red.png";
+          var src3 = document.getElementById("nextPlayCard");
+          src3.appendChild(img3);
+          img4.src = "img/cards/1x/back-red.png";
+          var src4 = document.getElementById("dealerPlayCard");
+          src4.appendChild(img4);
+        }, 3000);
+      }
+      else {
+          setTimeout(function(){
+            if (playerCardValSum == 21 && dealerCardValSum != 21) {
+              placeModal('BlackJack! You win!');
+              money += 2 * betAmount;
+            }
+            else if (dealerCardValSum == 21 && playerCardValSum != 21) {
+              placeModal('BlackJack of Dealer! You Lose!');
+            }
+            else if (dealerCardValSum == 21 && playerCardValSum == 21){
+              placeModal('Two way BlackJack! Push!')
+              money += betAmount;
+            }
+            else if(playerCardValSum == dealerCardValSum){
+              placeModal ('Push!');
+              money += betAmount;
+            }
+            else if (playerCardValSum > 21 && dealerCardValSum > 21){
+              placeModal('Two way Bust! Push!');
+              money += betAmount;
+            }
+            else if (playerCardValSum > 21 && dealerCardValSum < 21) {
+              placeModal('BUST! You lose!');
+            }
+            else if(dealerCardValSum > 21 && playerCardValSum < 21) {
+              placeModal ('Dealer BUST! You win!');
+              money += 2 * betAmount;
+            }
+            else if (playerCardValSum > dealerCardValSum) {
+              placeModal('You Win!');
+              money += 2 * betAmount;
+            }
+            else if (dealerCardValSum > playerCardValSum){
+              placeModal('You Lose!');
+            }
+          betAmount = 0;
+          document.getElementById('money').innerHTML = 'Money: ' + money;
+          document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount
+          if (money < 5) {
+            placeModal("Sorry, you have no more money!");
+          }
+          hasAceD = false
+          hasAceP = false
+          numOfPlayerCards = 0;
+          playerCardValSum = 0;
+          document.getElementById('sumOfPlayerCards').innerHTML = playerCardValSum;
+          dealerCardValSum = 0;
+          document.getElementById('sumOfDealerCards').innerHTML = dealerCardValSum;
+          deplaceModalurn = false;
+          endGame = true
+          document.getElementById('dealerPlayCard').innerHTML = ''
+          document.getElementById('nextPlayCard').innerHTML = ''
+          // clear the <img> tags from dealer...
+          cardsArr = ["club_jack", "club_queen", "club_king", "diamond_jack", "diamond_queen", "diamond_king", "heart_jack", "heart_queen", "heart_king", "spade_jack", "spade_queen", "spade_king"];
+          for (i=1; i<=10; i++) {
+            cardsArr.push("club_" + i);
+            cardsArr.push("diamond_" + i);
+            cardsArr.push("heart_" + i);
+            cardsArr.push("spade_" + i);
+          }
+            deckOfCards = shuffle(cardsArr);
+            score = money
+            highscoreTracker.click()
+            var img3 = document.createElement("img");
+            var img4 = document.createElement("img");
+            img3.src = "img/cards/1x/back-red.png";
+            var src3 = document.getElementById("nextPlayCard");
+            src3.appendChild(img3);
+            img4.src = "img/cards/1x/back-red.png";
+            var src4 = document.getElementById("dealerPlayCard");
+            src4.appendChild(img4);
+          }, 4000);
+        }
   }
 });
 
