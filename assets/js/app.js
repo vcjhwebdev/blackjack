@@ -16,16 +16,17 @@ var numOfDealerCards = 0;
 var score = 0;
 var mySound;
 var myMusic;
-var slider = document.getElementById("myRange");
-var output = document.getElementById("betAmountLbl");
+//var slider = document.getElementById("myRange");
+//var output = document.getElementById("betAmountLbl");
 
  // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-// slider.oninput = function() {
+// slider.oninput = function()
 //   output.innerHTML = this.value;
 //   var bet = this.value
 //   money -= this.value
+//   document.getElementById('money').innerHTML = 'Money: ' + money;
 // }
 
 function sound(src) {
@@ -47,11 +48,11 @@ function sound(src) {
 
 // place modal will generate modal and place it
 
-rules.addEventListener('click', function(e) {
-  placeModal('The point of the game is to get either 21 points from your cards or get closer to 21 than the computer. However, once you get over 21, you lose. If you and the computer get over 21, you tie. Each cards points is its face value, or if it is a royalty it is a ten. Aces are 1 or 11, depending which would help you the most. You can Hit(placing a card), Hold(Computer places his cards), and bet to earn money. Your personal Highscore will be recorded. HAVE FUN :)')
+//rules.addEventListener('click', function(e) {
+  //placeModal('The point of the game is to get either 21 points from your cards or get closer to 21 than the computer. However, once you get over 21, you lose. If you and the computer get over 21, you tie. Each cards points is its face value, or if it is a royalty it is a ten. Aces are 1 or 11, depending which would help you the most. You can Hit(placing a card), Hold(Computer places his cards), and bet to earn money. Your personal Highscore will be recorded. HAVE FUN :)')
 
 
-})
+//})
 myMusic = new sound("gametheme.mp3");
 myMusic.play()
 
