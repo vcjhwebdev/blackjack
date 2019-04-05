@@ -35,3 +35,7 @@ Working classic blackjack with interesting colors and working betting, all on a 
 
 - PWA icons fixed
 - PWA service worker test
+
+**Version 3.0**
+
+- Delay of dealer cards
