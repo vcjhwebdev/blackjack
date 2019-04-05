@@ -22,9 +22,11 @@ var output = document.getElementById("betAmountLbl");
  // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
+// slider.oninput = function() {
+//   output.innerHTML = this.value;
+//   var bet = this.value
+//   money -= this.value
+// }
 
 function sound(src) {
   this.sound = document.createElement("audio");
@@ -45,11 +47,11 @@ function sound(src) {
 
 // place modal will generate modal and place it
 
-//rules.addEventListener('click', function(e) {
-  //placeModal('The point of the game is to get either 21 points from your cards or get closer to 21 than the computer. However, once you get over 21, you lose. If you and the computer get over 21, you tie. Each cards points is its face value, or if it is a royalty it is a ten. Aces are 1 or 11, depending which would help you the most. You can Hit(placing a card), Hold(Computer places his cards), and bet to earn money. Your personal Highscore will be recorded. HAVE FUN :)')
+rules.addEventListener('click', function(e) {
+  placeModal('The point of the game is to get either 21 points from your cards or get closer to 21 than the computer. However, once you get over 21, you lose. If you and the computer get over 21, you tie. Each cards points is its face value, or if it is a royalty it is a ten. Aces are 1 or 11, depending which would help you the most. You can Hit(placing a card), Hold(Computer places his cards), and bet to earn money. Your personal Highscore will be recorded. HAVE FUN :)')
 
 
-//})
+})
 myMusic = new sound("gametheme.mp3");
 myMusic.play()
 
@@ -70,24 +72,24 @@ function placeModal(content) {
   });
 }
 
-// bet.addEventListener('click', function(e) {
-//   if (endGame == true) {
-//     var button = e.target;
-//     var bet = parseInt(button.textContent);
-//     if (bet > money) {
-//       placeModal("Sorry, you don't have enough money to bet that much!")
-//   }
-//   else {
-//     money -= bet;
-//     betAmount += bet;
-//   }
-//   document.getElementById('money').innerHTML = 'Money: ' + money;
-//   document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
-//   }
-//   else {
-//     placeModal("You can only bet at the start of your turn!")
-//   }
-// });
+bet.addEventListener('click', function(e) {
+  if (endGame == true) {
+    var button = e.target;
+    var bet = parseInt(button.textContent);
+    if (bet > money) {
+      placeModal("Sorry, you don't have enough money to bet that much!")
+  }
+  else {
+    money -= bet;
+    betAmount += bet;
+  }
+  document.getElementById('money').innerHTML = 'Money: ' + money;
+  document.getElementById('betAmountLbl').innerHTML = 'Bet this round: ' + betAmount;
+  }
+  else {
+    placeModal("You can only bet at the start of your turn!")
+  }
+});
 hit.addEventListener('click', function(e) {
 
   endGame = false;
