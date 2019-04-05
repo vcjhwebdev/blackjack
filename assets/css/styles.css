@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Rock+Salt');
 
-.slider {
+/* .slider {
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
@@ -11,7 +11,7 @@
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-}
+} */
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -116,12 +116,18 @@ button {
   border: 1px solid blue;
   background-color: gray;
   border-radius: 8px;
-  margin: 0 auto;
+  margin: auto;
   width: 100%;
   cursor:cell;
+  transition: all .1s linear;
+  box-shadow: 0 5px 0 #006599;
+  cursor: pointer;
+
 }
 button:active {
   background-color: blue;
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
   /* box-shadow: 0 0 16px 0 black inset; */
 }
 
