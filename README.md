@@ -23,6 +23,15 @@ Working classic blackjack with interesting colors and working betting, all on a 
 
 ### Changelog
 
+**Version 2.1**
+
+- Delay of dealer cards
+
+**Version 1.1**
+
+- PWA icons fixed
+- PWA service worker test
+
 **Version 1.0**
 
 - localStorage now incorporated
@@ -35,7 +44,3 @@ Working classic blackjack with interesting colors and working betting, all on a 
 
 - PWA icons fixed
 - PWA service worker test
-
-**Version 3.0**
-
-- Delay of dealer cards
