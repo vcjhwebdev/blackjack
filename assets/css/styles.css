@@ -1,35 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Rock+Salt');
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
+
 
 body{
   margin:0;
@@ -98,7 +72,6 @@ body {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-animation-duration: 20s;
-  /* background-color: green; */
   background-image: url(../../img/background.jpg);
   font-family: 'Rock Salt', cursive;
 }
@@ -116,19 +89,19 @@ button {
   border: 1px solid blue;
   background-color: gray;
   border-radius: 8px;
-  margin: 0 auto;
+  margin: auto;
   width: 100%;
   cursor:cell;
+  transition: all .1s linear;
+  box-shadow: 0 5px 0 #006599;
+  cursor: pointer;
+
 }
 button:active {
   background-color: blue;
-  /* box-shadow: 0 0 16px 0 black inset; */
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
 }
-
-/* .border {
-  border-style: double;
-
-} */
 
 h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
   color: #48A0CC;
@@ -157,8 +130,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
 #dealer {
   position: relative;
   height: 280px;
-  /* width: 10px;
-  length: 50px; */
 }
 
 .playerCard img {
@@ -181,7 +152,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
     color: red;
 }
 
-/* <-- 320px */
 @media (max-width: 320px) {
   button {
     text-align:center;
@@ -209,8 +179,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
  #dealer {
    position: relative;
    height: 180px;
-   /* width: 10px;
-   length: 50px; */
  }
 
  .playerCard img {
@@ -239,7 +207,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
 
 }
 
-/* --> 768px */
 @media (min-width: 768px) {
 
 
@@ -258,8 +225,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
   #dealer {
     position: relative;
     height: 375px;
-    /* width: 10px;
-    length: 50px; */
   }
 
   .playerCard img {
@@ -284,7 +249,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
 
 }
 
-/* --> 1024px */
 @media (min-width: 1024px) {
 
   button {
@@ -302,8 +266,6 @@ h1, h2, #sumOfDealerCards, #sumOfPlayerCards {
   #dealer  {
     position: relative;
     height: 300px;
-    /* width: 10px;
-    length: 50px; */
   }
 
   .playerCard img {

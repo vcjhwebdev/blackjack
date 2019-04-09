@@ -14,8 +14,9 @@ var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
-var mySound;
-var myMusic;
+var canHold = true
+//var mySound;
+//var myMusic;
 //var slider = document.getElementById("myRange");
 //var output = document.getElementById("betAmountLbl");
 
@@ -29,20 +30,20 @@ var myMusic;
 //   document.getElementById('money').innerHTML = 'Money: ' + money;
 // }
 
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
-}
+// function sound(src) {
+//   this.sound = document.createElement("audio");
+//   this.sound.src = src;
+//   this.sound.setAttribute("preload", "auto");
+//   this.sound.setAttribute("controls", "none");
+//   this.sound.style.display = "none";
+//   document.body.appendChild(this.sound);
+//   this.play = function(){
+//     this.sound.play();
+//   }
+//   this.stop = function(){
+//     this.sound.pause();
+//   }
+// }
 //var hasAceP = false
 //var hasAceD = false
 
@@ -53,8 +54,8 @@ function sound(src) {
 
 
 //})
-myMusic = new sound("gametheme.mp3");
-myMusic.play()
+//myMusic = new sound("gametheme.mp3");
+//myMusic.play()
 
 function placeModal(content) {
   var modal = document.createElement('div');
@@ -92,7 +93,7 @@ bet.addEventListener('click', function(e) {
   }
 });
 hit.addEventListener('click', function(e) {
-
+  canHold = true
   endGame = false;
   var firstHit = true;
   var nextCard = deckOfCards.pop();
@@ -132,6 +133,8 @@ hit.addEventListener('click', function(e) {
     }
 });
 hold.addEventListener('click', function(e) {
+  if (canHold == true) {
+    canHold = false
   numOfDealerCards = 0
     if (deplaceModalurn === true) {
       //while (dealerCardValSum < 16) {
@@ -399,7 +402,8 @@ hold.addEventListener('click', function(e) {
             src4.appendChild(img4);
           }, 4000);
         }
-  }
+      }
+    }
 });
 
 newGame.addEventListener('click', function(e) {

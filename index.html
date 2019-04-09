@@ -31,19 +31,13 @@
     <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
   </head>
   <body>
-    <!-- <div class="modal">
-      <div class="modal-content">
-        <h1>You lose!</h1>
-        <button class="modalButton">Continue</button>
-      </div>
-    </div> -->
+
     <header>
       <h1>BlackJack</h1>
 
     </header>
     <div id="highscore"></div>
-    <!-- Cards are put in play-->
-<div id="x"></div>
+
     <div id="play-area" style="text-align: center">
       <div id="dealer">
         <p id="sumOfDealerCards">0</p>
@@ -79,30 +73,18 @@
       <button>100</button>
       <button>1000</button>
 
-      <!-- <p>Bet this round: <span id="betAmountLbl"></span></p> -->
-      <!-- <div class="slidecontainer">
-        <input type="range" min="0" max="500" value="250" class="slider" id="myRange">
-      </div> -->
-
     </div>
-
     <div class="allIn">
       <button>ALL IN</button>
     </div>
 
-
-
-
-    <!-- JavaScript File (loaded after the html has rendered) -->
     <script src="assets/js/app.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
     	window.addEventListener('load', function() {
       		navigator.serviceWorker.register('sw.js').then(function(registration) {
-      		// Registration was successful
-      		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+\      		console.log('ServiceWorker registration successful with scope: ', registration.scope);
       	}, function(err) {
-      		// registration failed :(
       		console.log('ServiceWorker registration failed: ', err);
       	});
       });
