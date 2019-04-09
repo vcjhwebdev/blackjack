@@ -23,6 +23,10 @@ Working classic blackjack with interesting colors and working betting, all on a 
 
 ### Changelog
 
+**Version 2.2**
+
+- Refactoring and removing unused html and js
+
 **Version 2.1**
 
 - Delay of dealer cards
