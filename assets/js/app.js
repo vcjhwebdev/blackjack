@@ -14,6 +14,7 @@ var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
+var canHold = true
 //var mySound;
 //var myMusic;
 //var slider = document.getElementById("myRange");
@@ -92,7 +93,7 @@ bet.addEventListener('click', function(e) {
   }
 });
 hit.addEventListener('click', function(e) {
-
+  canHold = true
   endGame = false;
   var firstHit = true;
   var nextCard = deckOfCards.pop();
@@ -132,6 +133,8 @@ hit.addEventListener('click', function(e) {
     }
 });
 hold.addEventListener('click', function(e) {
+  if (canHold == true) {
+    canHold = false
   numOfDealerCards = 0
     if (deplaceModalurn === true) {
       //while (dealerCardValSum < 16) {
@@ -399,7 +402,8 @@ hold.addEventListener('click', function(e) {
             src4.appendChild(img4);
           }, 4000);
         }
-  }
+      }
+    }
 });
 
 newGame.addEventListener('click', function(e) {
