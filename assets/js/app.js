@@ -14,8 +14,8 @@ var endGame = true
 var numOfPlayerCards = 0;
 var numOfDealerCards = 0;
 var score = 0;
-var mySound;
-var myMusic;
+//var mySound;
+//var myMusic;
 //var slider = document.getElementById("myRange");
 //var output = document.getElementById("betAmountLbl");
 
@@ -29,20 +29,20 @@ var myMusic;
 //   document.getElementById('money').innerHTML = 'Money: ' + money;
 // }
 
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
-}
+// function sound(src) {
+//   this.sound = document.createElement("audio");
+//   this.sound.src = src;
+//   this.sound.setAttribute("preload", "auto");
+//   this.sound.setAttribute("controls", "none");
+//   this.sound.style.display = "none";
+//   document.body.appendChild(this.sound);
+//   this.play = function(){
+//     this.sound.play();
+//   }
+//   this.stop = function(){
+//     this.sound.pause();
+//   }
+// }
 //var hasAceP = false
 //var hasAceD = false
 
@@ -53,8 +53,8 @@ function sound(src) {
 
 
 //})
-myMusic = new sound("gametheme.mp3");
-myMusic.play()
+//myMusic = new sound("gametheme.mp3");
+//myMusic.play()
 
 function placeModal(content) {
   var modal = document.createElement('div');
